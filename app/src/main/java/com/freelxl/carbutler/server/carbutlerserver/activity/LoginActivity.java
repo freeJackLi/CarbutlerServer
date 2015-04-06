@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushManager;
 import com.freelxl.baselibrary.utils.IntentUtils;
 import com.freelxl.carbutler.server.carbutlerserver.R;
 import com.lidroid.xutils.ViewUtils;
@@ -19,6 +21,12 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ViewUtils.inject(this);
+
+//        PushManager.startWork(this,
+//                PushConstants.LOGIN_TYPE_API_KEY,
+//                PushUtils.getMetaValue(this, "4Bac80ruzeGfTXEVne2p5oGM"));
+
+        PushManager.startWork(getApplicationContext(),PushConstants.LOGIN_TYPE_API_KEY,"4Bac80ruzeGfTXEVne2p5oGM");
 
     }
 

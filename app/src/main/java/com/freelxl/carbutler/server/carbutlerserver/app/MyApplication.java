@@ -2,6 +2,7 @@ package com.freelxl.carbutler.server.carbutlerserver.app;
 
 import android.app.Application;
 
+import com.baidu.frontia.FrontiaApplication;
 import com.baidu.mapapi.SDKInitializer;
 import com.freelxl.baselibrary.config.GlobalParams;
 
@@ -14,6 +15,9 @@ public class MyApplication extends Application {
         super.onCreate();
         GlobalParams.context = this;
 
-        SDKInitializer.initialize(getApplicationContext());
+        //百度地图初始化
+        SDKInitializer.initialize(this);
+        FrontiaApplication.initFrontiaApplication(this);
+//        FrontiaApplication.initFrontia(this);
     }
 }
