@@ -1,0 +1,281 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#f3f3f3"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <!--标题-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+        android:layout_height="45dp">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/back_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="申请成为技师"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/register_introduce1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/register_introduce2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+                <include layout="@layout/common_divider" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="10dp"
+                    android:singleLine="true"
+                    android:background="@null"
+                    android:hint="姓名"
+                    android:textColorHint="#000000"
+                    android:textSize="14sp" />
+
+                <include layout="@layout/common_divider" />
+
+                <EditText
+                    android:id="@+id/login_pwd_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="10dp"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:background="@null"
+                    android:hint="手机号"
+                    android:textColorHint="@android:color/black"
+                    android:textSize="14sp" />
+
+                <include layout="@layout/common_divider" />
+            </LinearLayout>
+
+            <!-- 擅长品牌 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+                <include layout="@layout/common_divider" />
+
+                <LinearLayout
+                    android:id="@+id/register_goodat_brank_ly"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical|left"
+                        android:text="擅长品牌"
+                        android:textColor="@android:color/black" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_weight="1"
+                        android:src="@drawable/right_row_icon" />
+                </LinearLayout>
+
+                <include layout="@layout/common_divider" />
+            </LinearLayout>
+
+            <!-- 擅长服务 -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical|left"
+                android:text="擅长服务"
+                android:textColor="#999999" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+                <include layout="@layout/common_divider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/register_service_cb1"
+                        style="@style/checkbox_service"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="保养" />
+
+                    <CheckBox
+                        android:id="@+id/register_service_cb2"
+                        style="@style/checkbox_service"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="维修"
+                        android:checked="false" />
+
+                    <CheckBox
+                        android:id="@+id/register_service_cb3"
+                        style="@style/checkbox_service"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="车撞了" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/register_service_cb4"
+                        style="@style/checkbox_service"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="剐蹭" />
+
+                    <CheckBox
+                        android:id="@+id/register_service_cb5"
+                        style="@style/checkbox_service"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="打不着火" />
+
+                    <CheckBox
+                        android:id="@+id/register_service_cb6"
+                        style="@style/checkbox_service"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="轮胎没气" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <include layout="@layout/common_divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#ffffff"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="3"
+                    android:gravity="center_vertical|left"
+                    android:text="相关经验"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/register_year"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="1"
+                    android:textColorHint="#999999"
+                    android:inputType="number"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_weight="1"
+                    android:text="年" />
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/bt_regist"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/login_loginbtn"
+                android:textColor="#ffffff"
+                android:textSize="16dp"
+                android:text="申请" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

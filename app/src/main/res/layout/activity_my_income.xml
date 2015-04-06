@@ -1,0 +1,191 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back14"
+    android:orientation="vertical">
+
+    <!--标题-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+        android:layout_height="45dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/back_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="收入"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/tv_withdraw"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:text="提现"
+            android:textColor="#1e78e6"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_height3"
+        android:background="@color/red2"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_size11"
+            android:layout_marginTop="@dimen/margin_size15"
+            android:gravity="center_vertical|left"
+            android:text="@string/myget_balance"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size8"
+                android:layout_marginTop="@dimen/margin_size10"
+                android:gravity="center_vertical|left"
+                android:text="@string/rmb"
+                android:textColor="@color/white"
+                android:textSize="@dimen/margin_size14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_size10"
+                android:gravity="center_vertical|left"
+                android:text="130"
+                android:textColor="@color/white"
+                android:textSize="@dimen/margin_size14" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 昨天 -->
+
+    <LinearLayout
+        android:id="@+id/register_goodat_brank_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/layout_height4"
+            android:layout_marginLeft="@dimen/margin_size8"
+            android:gravity="center_vertical|left"
+            android:text="@string/withdraw_count"
+            android:textColor="@color/back3"
+            android:textSize="@dimen/text_size3" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_size5"
+            android:layout_marginRight="@dimen/margin_size8"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="￥120"
+            android:textColor="@color/back9"
+            android:textSize="@dimen/text_size3" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/back12" />
+
+    <!-- 30天 -->
+
+    <LinearLayout
+        android:id="@+id/register_goodat_brank_day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/layout_height4"
+            android:layout_marginLeft="@dimen/margin_size8"
+            android:gravity="center_vertical|left"
+            android:text="@string/myget_days30"
+            android:textColor="@color/back3"
+            android:textSize="@dimen/text_size3" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_size5"
+            android:layout_marginRight="@dimen/margin_size8"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="￥120"
+            android:textColor="@color/back9"
+            android:textSize="@dimen/text_size3" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/back12" />
+
+    <!-- 累计 -->
+
+    <LinearLayout
+        android:id="@+id/register_goodat_brank_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/layout_height4"
+            android:layout_marginLeft="@dimen/margin_size8"
+            android:gravity="center_vertical|left"
+            android:text="@string/myget_total"
+            android:textColor="@color/back3"
+            android:textSize="@dimen/text_size3" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_size5"
+            android:layout_marginRight="@dimen/margin_size8"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="￥120"
+            android:textColor="@color/back9"
+            android:textSize="@dimen/text_size3" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/back12" />
+
+</LinearLayout>

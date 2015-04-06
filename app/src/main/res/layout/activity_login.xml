@@ -1,0 +1,134 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#f3f3f3"
+    android:layout_height="match_parent">
+
+    <!--标题-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+        android:layout_height="45dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/back_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="叮咚车管家服务版"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/login_username_et"
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:inputType="phone"
+            android:layout_height="45dp"
+            android:paddingLeft="15dp"
+            android:background="#ffffff"
+            android:hint="请输入你的手机号码"
+            android:textSize="14sp" />
+
+        <include layout="@layout/common_divider" />
+
+        <EditText
+            android:id="@+id/login_pwd_et"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:singleLine="true"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:background="#ffffff"
+            android:hint="请输入密码"
+            android:textSize="14sp" />
+
+        <!--<include layout="@layout/common_divider" />-->
+
+        <Button
+            android:id="@+id/bt_login"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/login_loginbtn"
+            android:text="登录"
+            android:textColor="#ffffff"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="找回密码"
+            android:textColor="#999999" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="#e0dfdd"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/bt_register"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/login_registerbtn"
+                android:text="技师注册"
+                android:textColor="#ff4400"
+                android:textSize="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="21dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4S店/管家  加盟热线" />
+
+                <TextView
+                    android:id="@+id/tv_callPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="400 889 1971"
+                    android:textColor="#0000ff"
+                    android:textStyle="normal" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

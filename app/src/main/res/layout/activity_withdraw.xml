@@ -1,0 +1,179 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back14"
+    android:orientation="vertical">
+
+    <!--标题-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+        android:layout_height="45dp">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/back_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="提现"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/margin_size8"
+        android:background="@color/back12" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginLeft="@dimen/margin_size8"
+            android:src="@drawable/butler_phone_info" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:gravity="center_vertical|left"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size5"
+                android:layout_marginTop="@dimen/margin_size5"
+                android:gravity="center_vertical|left"
+                android:text="@string/withdraw_bank"
+                android:textColor="@color/back3"
+                android:textSize="@dimen/text_size3" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_size5"
+                android:layout_marginTop="@dimen/margin_size5"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical|left"
+                    android:text="@string/withdraw_bank_count"
+                    android:textColor="@color/back9"
+                    android:textSize="@dimen/text_size1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical|left"
+                    android:text="@string/withdraw_bank_kind"
+                    android:textColor="@color/back9"
+                    android:textSize="@dimen/text_size1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:src="@drawable/right_row_icon" />
+    </LinearLayout>
+
+    <!-- 转出金额 -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/back12" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/back12" />
+
+        <LinearLayout
+            android:id="@+id/register_goodat_brank_ly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginLeft="@dimen/margin_size8"
+                android:gravity="center_vertical|left"
+                android:text="@string/withdraw_count"
+                android:textColor="@color/back3"
+                android:textSize="@dimen/text_size2" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size5"
+                android:layout_weight="1"
+                android:background="@null"
+                android:singleLine="true"
+                android:inputType="number"
+                android:hint="@string/withdraw_input_hint"
+                android:textSize="@dimen/text_size2" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/back12" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/order_height"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="@dimen/margin_size10"
+        android:layout_marginRight="@dimen/margin_size10"
+        android:background="@drawable/login_registerbtn"
+        android:textColor="@color/red"
+        android:textSize="@dimen/text_size3"
+        android:text="@string/withdraw_commit"
+        android:visibility="visible" />
+    <!-- 限额 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_size8"
+        android:layout_marginTop="50dp"
+        android:gravity="center_vertical|left"
+        android:text="@string/withdraw_limit"
+        android:textColor="@color/back9"
+        android:textSize="@dimen/text_size1" />
+
+
+</LinearLayout>

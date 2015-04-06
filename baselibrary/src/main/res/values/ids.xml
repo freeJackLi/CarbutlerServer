@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="update_notification_id" type="id"></item>
+    <item name="badgeView_id" type="id"></item>
+
+</resources>

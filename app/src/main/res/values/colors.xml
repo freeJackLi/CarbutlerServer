@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 白色 -->
+    <color name="white">#ffffff</color>
+    <!-- 红色 -->
+    <color name="red">#ff0000</color>
+    <color name="red2">#ed4949</color>
+     <!-- 蓝色 -->
+    <color name="blue">#0000ff</color>
+    
+     <color name="black_title">#000000</color>
+     <color name="back3">#333333</color>
+    <color name="back6">#666666</color>
+    <color name="back9">#999999</color>
+      <color name="back12">#CCCCCC</color>
+     <color name="back14">#EEEEEE</color>
+     <color name="bg_title">#cdcdcd</color>
+    
+</resources>

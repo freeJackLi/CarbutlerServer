@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="#eeeeee"
+    android:orientation="vertical">
+
+    <!--标题-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+        android:layout_height="45dp">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/back_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="意见反馈"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/tv_withdraw"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:text="提交反馈"
+            android:textColor="#1e78e6"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <include layout="@layout/common_divider" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="请输入您宝贵的意见"
+        android:textSize="16sp"
+        android:minLines="10"
+        android:layout_marginTop="7dp"
+        android:paddingLeft="13dp"
+        android:gravity="start"
+        android:background="@android:color/white"
+        android:textColor="#333333"
+        android:textColorHint="#999999"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

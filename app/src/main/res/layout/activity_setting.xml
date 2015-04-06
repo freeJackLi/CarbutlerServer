@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="#eeeeee"
+    android:orientation="vertical">
+
+    <!--标题-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+        android:layout_height="45dp">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/back_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="设置"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <include layout="@layout/common_divider" />
+
+    <TextView
+        android:id="@+id/feedback"
+        android:layout_width="match_parent"
+        android:text="意见反馈"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:background="@android:color/white"
+        android:textColor="#333333"
+        android:layout_height="49dp" />
+
+    <include layout="@layout/common_divider" />
+
+    <TextView
+        android:id="@+id/update"
+        android:layout_width="match_parent"
+        android:text="检查更新"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:background="@android:color/white"
+        android:textColor="#333333"
+        android:layout_height="49dp" />
+
+    <include layout="@layout/common_divider" />
+
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="match_parent"
+        android:text="关于我们"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:background="@android:color/white"
+        android:textColor="#333333"
+        android:layout_height="49dp" />
+
+    <include layout="@layout/common_divider" />
+
+    <TextView
+        android:id="@+id/exit"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:text="退出当前帐号"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:background="@android:color/white"
+        android:textColor="#333333"
+        android:layout_height="49dp" />
+
+    <include layout="@layout/common_divider" />
+</LinearLayout>

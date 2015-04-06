@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:paddingLeft="16dp"
+    android:background="@android:color/white"
+    android:layout_height="match_parent">
+
+    <!--第一条-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="114dp">
+
+        <ImageView
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/set_user"
+            android:layout_marginLeft="10dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_marginLeft="17dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:text="@string/defualt_value"
+                android:layout_height="wrap_content" />
+
+            <RatingBar
+                android:layout_width="77dp"
+                android:layout_marginTop="4dp"
+                android:layout_height="17dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#333333"
+                android:layout_marginTop="3dp"
+                android:text="@string/defualt_value"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <include layout="@layout/common_divider" />
+
+    <TextView
+        android:id="@+id/my_order"
+        android:layout_width="match_parent"
+        android:text="我的订单"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:drawablePadding="8dp"
+        android:textColor="#333333"
+        android:drawableLeft="@drawable/my_order"
+        android:layout_height="49dp" />
+
+    <include layout="@layout/common_divider" />
+
+    <TextView
+        android:id="@+id/my_income"
+        android:layout_width="match_parent"
+        android:text="我的收入"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:drawablePadding="8dp"
+        android:textColor="#333333"
+        android:drawableLeft="@drawable/my_income"
+        android:layout_height="49dp" />
+
+    <include layout="@layout/common_divider" />
+
+    <TextView
+        android:id="@+id/setting"
+        android:layout_width="match_parent"
+        android:text="设置"
+        android:gravity="center_vertical"
+        android:drawablePadding="8dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="#333333"
+        android:drawableLeft="@drawable/setting"
+        android:layout_height="49dp" />
+
+    <include layout="@layout/common_divider" />
+
+</LinearLayout>
