@@ -217,6 +217,7 @@ public class DisplayUtil {
 		p.x = (int) (d.getWidth() * widthLocation);
 		p.y = (int) (d.getHeight() * heightLocation);
 		dialog.getWindow().setAttributes(p);
+
 	}
 
 	/**
