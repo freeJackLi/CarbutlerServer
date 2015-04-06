@@ -1,0 +1,7 @@
+freelxl_carbutlerserver_20150404
+
+SHA1: 61:33:7B:D5:BB:C2:30:82:0C:07:4F:AC:A9:AB:3E:2C:0B:6B:3E:AA
+
+com.freelxl.carbutler.server.carbutlerserver
+
+61:33:7B:D5:BB:C2:30:82:0C:07:4F:AC:A9:AB:3E:2C:0B:6B:3E:AA;com.freelxl.carbutler.server.carbutlerserver

@@ -1,0 +1,735 @@
+﻿数据格式约定
+	返回数据为json格式，code为000000表示数据正常，datas为返回的数据 
+	{errCode:000000,errMsg:交易成功 datas: {}}
+返回值
+	获取数据
+	有内容直接返回数组，无内容返回空数组[]
+操作成功
+	操作类动作，成功直接返回，
+	{errCode:000000,errMsg:操作处理成功}
+错误
+	{"errCode":999999,errMsg:"错误信息"}
+登陆失败
+	{"errCode":999999,errMsg:手机号码或密码错误,请重新尝试!}
+登录提示
+	{"errCode":999909,errMsg:客户未登陆，请登陆后操作!}
+
+关于消息推送的说明：
+客户端绑定规则：
+	1、客户登录后，返回成功即发送绑定请求，绑定百度推动tagName
+	2、客户端需绑定2个tagName参数值，第一个是MD5加密后的客户号memberId,表示推送识别单独客户，第二个是登录后返回的级别levelId,以MD5加密后绑定，表示推送识别某一角色组群，仅当level为技师时，上班状态绑定标志为levelId加上字符'A',下班状态绑定标志为levelId加上字符'B'；
+	3、当技师实时改变工作状态（上班、下班）时，返回成功后，应立即取消上次绑定，重新按照规则2绑定。
+
+服务端推送说明：
+	1、服务端推送消息内容为json格式数据，页面组合显示由客户端解析后自己决定。
+
+项目的基础路径：http://120.24.244.198/carSteward/
+
+	
+*************************************
+注意：
+所有登陆后接口除了接口要求传入的参数外，默认必须传入tonken参数，接口列表中不再列出该字段
+如涉及到页码操作则需要传入page_size参数，代表第几页，默认为1，单页默认输出5（该值可配置）
+所有接口参数如无提示为非必输则为必输
+*************************************
+
+------------
+登录
+------------
+		http://120.24.244.198/carSteward/user/login?loginName=13503099997&loginPwd=123456
+------------
+传入的参数
+		loginName			手机号码
+		loginPwd			密码
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":登录成功,
+		"datas": {
+			"memberId": "1000000001",  //用户ID
+			"memberAccount":"CGJ0000000000000000",				//用户账号						
+			"memberEmail": "",//邮箱
+			"membermoble":"13503099997",	//用户名
+			"memberPwd":"123456",
+			"memberIsdel":"1", //状态（该字段表示上下班状态）0-下班  1-上班  目前仅对技师有效
+			"memberState":"1",//状态（该字段表示账户状态）
+			"levelId":"1",//1-客户 2-管家 3-技师 4-4S店
+			"detailSex":"1",//0-未填写  1-男  2-女
+			"detailBirthday":"",
+			"detailName":"",//姓名
+			"detailHeadPic": "http://yo.com/Public/avatar/avatar-default.jpg",	//头像
+			"detailIntegral":"10000",//积分
+			"tokenId":"1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd"
+			"detaillng":119
+			"detaillat":119
+			"detailAddr":"XX市xx街51号"
+		}
+	}
+
+
+
+
+------------
+注册
+------------
+		http://120.24.244.198/carSteward/user/regist?memberMobile=13503099997&memberPwd=123456&levelId=1&detailSex=1&detailName=张三
+------------
+传入的参数
+		membermoble			手机号码
+		memberPwd			密码
+		levelId				级别  1-客户 2-管家 3-技师 4-4S店
+		detailSex			性别0男，1女
+		detailName			名称
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":注册成功,
+		"datas": {
+
+		}
+	}
+
+
+------------
+查询个人信息
+------------
+		http://120.24.244.198/carSteward/user/queryPersonalInfo?tokenId=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd
+------------
+传入的参数
+		tokenId		唯一身份标志
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":交易成功,
+		"datas": {
+			"memberId": "1000000001",  //用户ID
+			"memberAccount":"CGJ0000000000000000",				//用户账号						
+			"memberEmail": "",//邮箱
+			"membermoble":"13503099997",	//用户名
+			"memberPwd":"123456",
+			"memberIsdel":"",
+			"memberState":"1",//状态
+			"levelId":"1",//1-客户 2-管家 3-技师 4-4S店
+			"detailSex":"1",//0-未填写  1-男  2-女
+			"detailBirthday":"",
+			"detailName":"",//姓名
+			"detailHeadPic": "http://yo.com/Public/avatar/avatar-default.jpg",	//头像
+			"detailIntegral":"10000",//积分
+			"tokenId":"1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd"
+			"detaillng":119
+			"detaillat":119
+			"detailAddr":"XX市xx街51号"
+		}
+	}
+
+
+------------
+查询某一级别所有客户
+------------
+		/user/queryLevelPersonal?tokenId=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd&levelId=1
+------------
+传入的参数
+		tokenId		唯一身份标志
+		levelId		客户级别	1-客户 2-管家 3-技师 4-4S店
+
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":交易成功,
+		"datas": [{
+			"memberId": "1000000001",  //用户ID
+			"memberAccount":"CGJ0000000000000000",				//用户账号						
+			"memberEmail": "",//邮箱
+			"membermoble":"13503099997",	//用户名
+			"memberPwd":"123456",
+			"memberIsdel":"",
+			"memberState":"1",//状态
+			"levelId":"1",//1-客户 2-管家 3-技师 4-4S店
+			"detailSex":"1",//0-未填写  1-男  2-女
+			"detailBirthday":"",
+			"detailName":"",//姓名
+			"detailHeadPic": "http://yo.com/Public/avatar/avatar-default.jpg",	//头像
+			"detailIntegral":"10000",//积分
+			"tokenId":"1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd"
+			"detaillng":119
+			"detaillat":119
+			"detailAddr":"XX市xx街51号"
+			},
+			{
+			"memberId": "1000000001",  //用户ID
+			"memberAccount":"CGJ0000000000000000",				//用户账号						
+			"memberEmail": "",//邮箱
+			"membermoble":"13503099997",	//用户名
+			"memberPwd":"123456",
+			"memberIsdel":"",
+			"memberState":"1",//状态
+			"levelId":"1",//1-客户 2-管家 3-技师 4-4S店
+			"detailSex":"1",//0-未填写  1-男  2-女
+			"detailBirthday":"",
+			"detailName":"",//姓名
+			"detailHeadPic": "http://yo.com/Public/avatar/avatar-default.jpg",	//头像
+			"detailIntegral":"10000",//积分
+			"tokenId":"1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd"
+			"detaillng":119
+			"detaillat":119
+			"detailAddr":"XX市xx街51号"
+			}]
+	}
+
+
+------------
+修改角色状态
+------------
+		/user/updateUserStatus?tokenId=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd&status=1
+------------
+传入的参数
+		tokenId		唯一身份标志
+		status		工作状态  0-下班 1-上班（原则上只有技师有该状态，待确定）
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":操作处理成功
+	}
+
+
+
+------------
+角色位置更新
+------------
+		/user/updateUserAddr?tokenId=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd&lng=119&lat=178&addr=北京市海淀区中山路88号
+------------
+传入的参数
+		tokenId		唯一身份标志
+		lng		经度
+		lat		纬度
+		addr		当前地址
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":操作处理成功
+	}
+
+
+------------
+忘记密码
+------------
+		/user/updatePwd?loginName=13503099997&loginPwd=123456
+------------
+传入的参数
+		loginName		登录名（手机号码）
+		loginPwd		密码
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":操作处理成功
+	}
+
+------------
+客户查询我的车库
+------------
+		/userCar/queryMemberCar?token=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd
+------------
+传入的参数
+		token		客户唯一身份标志
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":操作处理成功，
+		"datas": [{
+			"carId": "1000000001",  //汽车ID
+			"memberId": "1000000001",  //用户ID
+			"carBrand":"奥迪",				//品牌						
+			"carName": "奥迪A6",//车系类型
+			"carType":"2012款_2.4L_自动",	//车型
+			"carBuyTime":"",	//购车时间
+			"carNo":"",	车架号
+			"carLastMileage":"8000",//上次保养里程
+			"carLastTime":"20150317000000",//上次保养时间
+			"carLastServiceMerchant":"一汽奥迪4S店",//上次保养商户
+			"carAddTime":"20150317000000",	//录入时间
+			},
+			{
+			"carId": "1000000002",  //汽车ID
+			"memberId": "1000000001",  //用户ID
+			"carBrand":"奥迪",				//品牌						
+			"carName": "奥迪A6",//车系类型
+			"carType":"2012款_2.4L_自动",	//车型
+			"carBuyTime":"",	//购车时间
+			"carNo":"",	车架号
+			"carLastMileage":"8000",//上次保养里程
+			"carLastTime":"20150317000000",//上次保养时间
+			"carLastServiceMerchant":"一汽奥迪4S店",//上次保养商户
+			"carAddTime":"20150317000000",	//录入时间
+			},]
+	}
+
+
+------------
+添加车辆信息
+------------
+		/userCar/addMemberCar?token=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd&carId=1000001&carBrand=奥迪&carName=奥迪A6&carType=2015款_2.4L_自动&carBuyTime=20150101&carNo=1111111
+------------
+传入的参数
+		tokenId		唯一身份标志
+		carId		车辆信息模型ID
+		carBrand	品牌
+		carName		车系
+		carType		车型
+		carBuyTime	购买时间  可为空
+		carNo		车架号	可为空
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":车辆信息添加成功！
+	}
+
+
+------------
+根据品牌ID返回所有车系类型与名称
+------------
+		/brand/queryCar?token=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd&carBrandId=1000001
+------------
+传入的参数
+		tokenId		唯一身份标志
+		carBrandId	品牌ID
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":交易成功,
+		"datas": [{
+			"typeId": "1000000001",  //车系类型ID
+			"typeName": "进口奥迪",  //车系类型名称
+			"nameId":"1000005",	//车系名称ID							
+			"name": "A6"//车系名称
+			},
+			{
+			"typeId": "1000000002",  //车系类型ID
+			"typeName": "一汽奥迪",  //车系类型名称
+			"nameId":"1000005",	//车系名称ID							
+			"name": "A4"//车系名称
+			},
+			{
+			。。。。。更多数据
+			}]
+
+	}
+
+
+------------
+根据车系类型与车系名称返回车型数据
+------------
+		/brand/queryCar?token=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd&typeId=1000001&nameId=1000076
+------------
+传入的参数
+		tokenId		唯一身份标志
+		typeId		车系类型ID
+		nameId		车系名称ID
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":交易成功,
+		"datas": [{
+			"modelsid": "1000000001",	//车辆信息模板编号ID
+			"carTypeYear": "2012",		//车年款
+			"carTypeContent":"2.4",		//车油箱容量							
+			"carTypeGearbox": "自动"	//变速箱
+			},
+			{
+			"modelsid": "1000000002",	//车辆信息模板编号ID
+			"carTypeYear": "2012",		//车年款
+			"carTypeContent":"2.4",		//车油箱容量							
+			"carTypeGearbox": "自动"	//变速箱
+			},
+			{
+			。。。。。更多数据
+			}]
+	}
+
+------------
+返回所有汽车品牌
+------------
+		/brand/queryAllBrand?token=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd
+------------
+传入的参数
+		tokenId		唯一身份标志
+		typeId		车系类型ID
+		nameId		车系名称ID
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":交易成功,
+		"datas": [{
+			"brandId": "1000000001",	//品牌ID
+			"brandLogo": "",		//品牌logo  (url地址)
+			"brandName":"奥迪",		//品牌名称					
+			"brandEname": "a"		//首字母
+			"brandEname":"0"		//是否热门车型  0否 1是
+			},
+			{
+			"brandId": "1000000002",	//品牌ID
+			"brandLogo": "",		//品牌logo  (url地址)
+			"brandName":"奔驰",		//品牌名称					
+			"brandEname": "b"		//首字母
+			"brandEname":"1"		//是否热门车型  0否 1是
+			},
+			{
+			。。。。。更多数据
+			}]
+	}
+
+------------
+查询所有服务项目
+------------
+		/service/queryAllService
+------------
+传入的参数
+		无参数
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":交易成功,
+		"datas": [{
+			"projId": "1000000001",	//服务项目ID
+			"projAddTime": "20150317,		//添加时间
+			"projName":"撞车了",		//项目名称					
+			"projType": "1"		//项目类型	1-救援  2-保养  3-维修  4-代办  5-加装改装  6-其他
+			"projPrice":"99.00"		//项目价格
+			"projContent":"99元"		//展示内容
+			"projPoint":"0.9"		//折扣
+			},
+			{
+			"projId": "1000000002",	//服务项目ID
+			"projAddTime": "20150317,		//添加时间
+			"projName":"要保养",		//项目名称					
+			"projType": "2"		//项目类型	1-救援  2-保养  3-维修  4-代办  5-加装改装  6-其他
+			"projPrice":"99.00"		//项目价格
+			"projContent":"299元起"		//展示内容
+			"projPoint":"0.9"		//折扣
+			},
+			{
+			"projId": "1000000003",	//服务项目ID
+			"projAddTime": "20150317,		//添加时间
+			"projName":"维修",		//项目名称					
+			"projType": "3"		//项目类型	1-救援  2-保养  3-维修  4-代办  5-加装改装  6-其他
+			"projPrice":"99.00"		//项目价格
+			"projContent":"299元起"		//展示内容
+			"projPoint":"0.9"		//折扣
+			},
+			{
+			。。。。。更多数据
+			}]
+	}
+
+------------
+根据服务ID查询服务内容
+------------
+		/service/queryServiceById?token=426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd&serviceId=1000000003
+------------
+传入的参数
+		tokenId		唯一身份标志
+		serviceId	服务项目ID
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":交易成功,
+		"datas":
+			{
+			"projId": "1000000003",	//服务项目ID
+			"projAddTime": "20150317,		//添加时间
+			"projName":"维修",		//项目名称					
+			"projType": "3"		//项目类型	1-救援  2-保养  3-维修  4-代办  5-加装改装  6-其他
+			"projPrice":"99.00"		//项目价格
+			"projContent":"299元起"		//展示内容
+			"projPoint":"0.9"		//折扣
+			}
+	}
+
+
+------------
+客户提交订单预约
+------------
+		/order/addOrder?token=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd&orderType=1&areaId=110&projId=1&carId=10000342
+------------
+传入的参数
+		tokenId		唯一身份标志
+		orderType	订单类型	1-救援  2-保养  3-维修  4-代办  5-加装改装  6-其他
+		areaId		地区ID
+		projId		服务项目ID	
+		carId		客户车库车辆ID
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":订单预约添加成功！,
+		"datas": {}
+	}
+
+注意此处会向所有上班状态的技师与所有管家推送该条信息
+
+
+
+
+------------
+技师或者管家抢单接口
+------------
+		/order/robOrder?token=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd&orderId=00000000000&memberId=10000342
+------------
+传入的参数
+		tokenId		唯一身份标志
+		orderId		订单号
+		memberId	管家ID	---说明，当抢单着为技师时，则为必填(跟单管家)，当抢单者为管家时，则为非必填
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":订单预约添加成功！,
+		"datas": {
+			"memberId": "1000000001",  //用户ID
+			"memberAccount":"CGJ0000000000000000",				//用户账号						
+			"memberEmail": "",//邮箱
+			"membermoble":"13503099997",	//用户名
+			"memberPwd":"123456",
+			"memberIsdel":"",
+			"memberState":"1",//状态
+			"levelId":"1",//1-客户 2-管家 3-技师 4-4S店
+			"detailSex":"1",//0-未填写  1-男  2-女
+			"detailBirthday":"",
+			"detailName":"",//姓名
+			"detailHeadPic": "http://yo.com/Public/avatar/avatar-default.jpg",	//头像
+			"detailIntegral":"10000",//积分
+			"tokenId":"1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd"
+			"detaillng":119
+			"detaillat":119
+			"detailAddr":"XX市xx街51号"
+			}
+	}
+
+注意此处抢单失败则返回失败，抢单成功则推送消息给下单客户，同时返回下单客户的客户信息。
+
+
+------------
+查询订单基本信息
+------------
+		/order/queryOrderBaseBMsg?token=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd&orderId=00000000000
+------------
+传入的参数
+		tokenId		唯一身份标志
+		orderId		订单号
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":查询成功,
+		"datas": {
+			"orderId": "1000000001",  //订单号
+			"orderAmt":"1000.00",	//订单金额	如为保养或者维修则无					
+			"orderType": "1",//订单类型
+			"orderMemberMobile":"13503099997",	//下单客户手机号
+			"orderCarType":"奥迪A5-2012年款-2.4L-手动",//客户车型
+			"orderCarMileage":"10000",//里程	保养与维修订单为页面输入
+			"orderCustPic1":"1",//现场图1  有则显示，没有则不显示，URL地址
+			"orderCustPic2":"1",//现场图2  有则显示，没有则不显示，URL地址
+			"orderCustPic3":"1",//现场图3  有则显示，没有则不显示，URL地址
+			"orderCustPic4":""  //现场图4  有则显示，没有则不显示，URL地址
+			}
+	}
+
+------------
+修改订单状态
+------------
+		/order/orderConfirm?token=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd&orderId=00000000000&orderType=1&orderStatus=2
+------------
+传入的参数
+		tokenId		唯一身份标志
+		orderId		订单号
+		orderType	订单类型  1-救援  2-保养  3-维修  4-代办  5-加装改装  6-其他
+		orderStatus	订单状态  0待确认,1待接车,2待施工,3待验车,4待付款,5已付款,6交易成功,7已取消  （部分状态为保养，维修专有）
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":操作处理成功,
+		"datas": {
+			}
+	}
+
+
+
+------------
+根据品牌ID与城市查询所有对应的4S店
+------------
+		/store/queryAllStores?token=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd&areaID=110&brandID=10000000001
+------------
+传入的参数
+		tokenId		唯一身份标志
+		areaID		地区编号
+		brandID		品牌ID
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":操作处理成功,
+		"datas": {
+			"storeId":"1000001"   //门店编号
+			"storeName":"梅特莱斯4S店"   //门店名
+			"brandId":"1086700000"   //品牌ID
+			"areaId":"110"   //地区ID
+			"storeAddress":""   //门店地址
+			"adminId":""   //登录ID
+			"storeContactor":""   //联系人
+			"storeTel":""   //门店电话
+			"storePayType":""   //结算方式
+			"storePayTime":""   //结算周期
+			"storePoint":""   //结算折扣
+			"storeStatus":""   //服务状态
+			"storeAddTime":""   //添加时间
+			"storeRange":""   //业务范围
+			"storeUpdateAdminId":""   //更新人
+			"storeUpdateTime":""   //最后更新日期
+			"storeMapLng":""   //经度
+			"storeMapLat":""   //纬度
+			"storeType":""   //门店类型
+			}，
+			{
+			。。。。。更多其他门店信息
+			}
+	}
+
+
+------------
+查询4S店配件折扣与工时折扣
+------------
+		/store/queryAllStores?token=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd&storeId=100000000002
+------------
+传入的参数
+		tokenId		唯一身份标志
+		storeId		4S店ID
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":操作处理成功,
+		"datas": {
+			"discountId":"1000001"   //优惠信息编号
+			"storeId":"1000001"   //4S店编号
+			"discountType":"1"   //项目类型
+			"discountPartsPoint":"0.9"   //配件折扣
+			"discountTimePoint":"0.85"   //工时折扣
+			"discountUpdateTime":"20150319"   //更新时间
+			"discountUpdateAdminId":"100000003"   //更新人
+			"discountAddTime":"20150319"   //添加时间
+			}
+	}
+
+
+
+
+-----------
+根据地区返回首页图片
+------------
+		/banner/queryAreaBanner?token=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd&areaId=110
+------------
+传入的参数
+		tokenId		唯一身份标志
+		areaId		地区ID
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":操作处理成功,
+		"datas": [{
+		
+			"bannerId":"1000001"   //编号
+			"bannerName":"xxx"   //名称
+			"bannerUrl":"http://yo.com/Public/avatar/avatar-default.jpg"   //路径
+			"bannerAreaId":"110"   //地区
+			"submitTime":"20150329185200"   //提交时间
+		},{
+		
+			"bannerId":"1000001"   //编号
+			"bannerName":"xxx"   //名称
+			"bannerUrl":"http://yo.com/Public/avatar/avatar-default.jpg"   //路径
+			"bannerAreaId":"110"   //地区
+			"submitTime":"20150329185200"   //提交时间
+		},{
+		
+			........更多
+		}]
+	}
+
+
+-----------
+客户上传现场图片
+------------
+		/orderInfo/custUploadImage?token=1426168189510ahehKS6IBRpmOmoDEMoUIZzJF0gd&orderID=11000000&file1=xx1&file2=xx2&file3=xx3
+------------
+传入的参数
+		tokenId		唯一身份标志
+		areaId		地区ID
+------------
+返回值
+	
+	{
+		"errCode": 000000,
+		"errMsg":操作处理成功,
+		"datas": [{
+		
+			"bannerId":"1000001"   //编号
+			"bannerName":"xxx"   //名称
+			"bannerUrl":"http://yo.com/Public/avatar/avatar-default.jpg"   //路径
+			"bannerAreaId":"110"   //地区
+			"submitTime":"20150329185200"   //提交时间
+		},{
+		
+			"bannerId":"1000001"   //编号
+			"bannerName":"xxx"   //名称
+			"bannerUrl":"http://yo.com/Public/avatar/avatar-default.jpg"   //路径
+			"bannerAreaId":"110"   //地区
+			"submitTime":"20150329185200"   //提交时间
+		},{
+		
+			........更多
+		}]
+	}
+
+
+
+
+
+
+
