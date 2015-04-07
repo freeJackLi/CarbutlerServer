@@ -12,23 +12,24 @@ import com.baidu.android.pushservice.PushManager;
 import com.freelxl.baselibrary.utils.IntentUtils;
 import com.freelxl.baselibrary.utils.MD5Util;
 import com.freelxl.carbutler.server.carbutlerserver.R;
+import com.freelxl.carbutler.server.carbutlerserver.view.CommonTitle;
 import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 
 import java.util.ArrayList;
 
 public class LoginActivity extends Activity {
 
+    @ViewInject(R.id.title)
+    CommonTitle title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ViewUtils.inject(this);
-
-//        PushManager.startWork(this,
-//                PushConstants.LOGIN_TYPE_API_KEY,
-//                PushUtils.getMetaValue(this, "4Bac80ruzeGfTXEVne2p5oGM"));
+        title.setMiddleText("叮咚车管家服务版");
 
         PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY, "4Bac80ruzeGfTXEVne2p5oGM");
         String a = MD5Util.getMD5Str("3");

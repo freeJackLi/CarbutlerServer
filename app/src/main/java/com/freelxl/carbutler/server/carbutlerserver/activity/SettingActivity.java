@@ -6,16 +6,22 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.freelxl.carbutler.server.carbutlerserver.R;
+import com.freelxl.carbutler.server.carbutlerserver.view.CommonTitle;
 import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 
 public class SettingActivity extends Activity {
+
+    @ViewInject(R.id.title)
+    CommonTitle title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         ViewUtils.inject(this);
+        title.setMiddleText("设置");
     }
 
     @OnClick(R.id.feedback)
@@ -38,12 +44,6 @@ public class SettingActivity extends Activity {
     @OnClick(R.id.exit)
     public void exit(View view) {
 
-    }
-
-
-    @OnClick(R.id.iv_back)
-    public void iv_back(View view) {
-        finish();
     }
 
 }

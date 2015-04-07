@@ -5,43 +5,7 @@
     android:background="#eeeeee"
     android:orientation="vertical">
 
-    <!--标题-->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:background="#ffffff"
-        android:layout_height="45dp">
-
-        <ImageView
-            android:id="@+id/iv_back"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/back_icon" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_centerInParent="true"
-            android:text="意见反馈"
-            android:textColor="#000000"
-            android:textSize="16sp" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:id="@+id/tv_withdraw"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:layout_centerVertical="true"
-            android:text="提交反馈"
-            android:textColor="#1e78e6"
-            android:textSize="15sp" />
-    </RelativeLayout>
+    <include layout="@layout/view_common_title" />
 
     <include layout="@layout/common_divider" />
 

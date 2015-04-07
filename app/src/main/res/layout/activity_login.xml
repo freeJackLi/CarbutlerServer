@@ -4,30 +4,7 @@
     android:background="#f3f3f3"
     android:layout_height="match_parent">
 
-    <!--标题-->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:background="#ffffff"
-        android:layout_height="45dp">
-
-        <ImageView
-            android:id="@+id/iv_back"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/back_icon" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_centerInParent="true"
-            android:text="叮咚车管家服务版"
-            android:textColor="#000000"
-            android:textSize="16sp" />
-    </RelativeLayout>
+    <include layout="@layout/view_common_title" />
 
     <LinearLayout
         android:layout_width="match_parent"

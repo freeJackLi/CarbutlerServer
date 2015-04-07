@@ -50,6 +50,7 @@ public class ContentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_content, container, false);
         ViewUtils.inject(this, view);
+//        title.setMiddleText();
         return view;
     }
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.freelxl.carbutler.server.carbutlerserver.view.CommonTitle xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:background="#ffffff"
+    android:layout_height="45dp">
+
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/back_icon" />
+
+    <TextView
+        android:id="@+id/middleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:text="@string/defualt_value"
+        android:textColor="#000000"
+        android:textSize="16sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/rightText"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:text="提交反馈"
+        android:textColor="#1e78e6"
+        android:textSize="15sp" />
+</com.freelxl.carbutler.server.carbutlerserver.view.CommonTitle>
