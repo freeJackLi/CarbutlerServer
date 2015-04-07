@@ -5,11 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.freelxl.baselibrary.bean.BaseJson;
+import com.freelxl.baselibrary.utils.HttpRequest;
 import com.freelxl.carbutler.server.carbutlerserver.R;
+import com.freelxl.carbutler.server.carbutlerserver.config.ConstantValue;
 import com.freelxl.carbutler.server.carbutlerserver.view.CommonTitle;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
+
+import java.util.HashMap;
 
 public class SettingActivity extends Activity {
 
@@ -33,6 +38,17 @@ public class SettingActivity extends Activity {
     @OnClick(R.id.update)
     public void update(View view) {
 
+        HashMap<String, String> paramMap = new HashMap<>();
+        paramMap.put("versionsType", "安卓");
+
+        new HttpRequest<BaseJson>(SettingActivity.this, ConstantValue.findSersions, paramMap, BaseJson.class) {
+
+            @Override
+            public void onSuccess(BaseJson fromJson) {
+
+            }
+
+        }.request();
     }
 
     @OnClick(R.id.about)

@@ -1,5 +1,6 @@
 package com.freelxl.baselibrary.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
@@ -13,7 +14,6 @@ import com.android.volley.toolbox.Volley;
 import com.freelxl.baselibrary.BuildConfig;
 import com.freelxl.baselibrary.bean.BaseJson;
 import com.freelxl.baselibrary.config.ConstantValue;
-import com.freelxl.baselibrary.config.GlobalParams;
 import com.freelxl.baselibrary.dialog.LoadingDialog;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -46,22 +46,25 @@ public abstract class HttpRequest<T extends BaseJson> {
 
     public static String TAG = "NETTEST";
 
+    private Activity activity;
+
     LoadingDialog loadingDialog;
 
 
-    public HttpRequest(String path, Map<String, String> paramMap,
+    public HttpRequest(Activity activity, String path, Map<String, String> paramMap,
                        Class<T> clazz, boolean isShowLoadingDialog) {
         super();
+        this.activity = activity;
         this.path = path;
         this.paramMap = paramMap;
         this.clazz = clazz;
         this.isShowLoadingDialog = isShowLoadingDialog;
     }
 
-    public HttpRequest(String path, Map<String, String> paramMap,
+    public HttpRequest(Activity activity, String path, Map<String, String> paramMap,
                        Class<T> clazz) {
 
-        this(path, paramMap, clazz, true);
+        this(activity, path, paramMap, clazz, true);
     }
 
     /**
@@ -72,16 +75,16 @@ public abstract class HttpRequest<T extends BaseJson> {
      * @param path  请求的URL
      * @param clazz 解析返回数据的实体化Bean
      */
-    public HttpRequest(String path, Class<T> clazz) {
+    public HttpRequest(Activity activity, String path, Class<T> clazz) {
 
-        this(path, null, clazz, true);
+        this(activity, path, null, clazz, true);
     }
 
 
-    public HttpRequest(String path, Class<T> clazz,
+    public HttpRequest(Activity activity, String path, Class<T> clazz,
                        boolean isShowLoadingDialog) {
 
-        this(path, null, clazz, isShowLoadingDialog);
+        this(activity, path, null, clazz, isShowLoadingDialog);
     }
 
     /**
@@ -103,10 +106,12 @@ public abstract class HttpRequest<T extends BaseJson> {
 
         // 通用的请求参数
 
-        if (!paramMap.containsKey("user_account")) {
-            paramMap.put("user_account", "xxxx");
-        }
+//        if (!paramMap.containsKey("user_account")) {
+//            paramMap.put("user_account", "xxxx");
+//        }
 
+
+        Log.d(TAG, "BuildConfig.DEBUG"+BuildConfig.DEBUG);
         // 如果是调试模式，打印日志
         if (BuildConfig.DEBUG) {
             // 遍历map集合
@@ -136,11 +141,11 @@ public abstract class HttpRequest<T extends BaseJson> {
         StringRequest request = getPostStringRequest();
 
         if (isShowLoadingDialog) {
-            loadingDialog = new LoadingDialog(GlobalParams.context);
+            loadingDialog = new LoadingDialog(activity);
             loadingDialog.show();
         }
         if (queue == null) {
-            initRequestQueue(GlobalParams.context);
+            initRequestQueue(activity);
         }
         queue.add(request);
     }

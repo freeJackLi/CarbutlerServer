@@ -13,7 +13,6 @@ import com.freelxl.baselibrary.R;
  */
 public class LoadingDialog extends Dialog {
 
-    public static final String LOADING_TAG = "loading_tag";
 
     public LoadingDialog(Context context) {
         super(context, R.style.DialogStyle);
@@ -22,8 +21,8 @@ public class LoadingDialog extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_loading);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.dialog_loading);
         setCanceledOnTouchOutside(false);
         getWindow().setBackgroundDrawable(
                 new ColorDrawable(android.R.color.transparent));
