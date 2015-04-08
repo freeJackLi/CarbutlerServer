@@ -110,8 +110,6 @@ public abstract class HttpRequest<T extends BaseJson> {
 //            paramMap.put("user_account", "xxxx");
 //        }
 
-
-        Log.d(TAG, "BuildConfig.DEBUG"+BuildConfig.DEBUG);
         // 如果是调试模式，打印日志
         if (BuildConfig.DEBUG) {
             // 遍历map集合
