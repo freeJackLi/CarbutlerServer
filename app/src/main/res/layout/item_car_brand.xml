@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_indexes"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#a9a9a9"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/padding_size5"
+        android:paddingRight="@dimen/padding_size5"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size3"
+        android:text="热门" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_height1"
+        android:layout_below="@+id/tv_indexes"
+        android:paddingLeft="@dimen/padding_size5"
+        android:paddingRight="@dimen/padding_size5">
+
+        <TextView
+            android:id="@+id/tv_car_brand_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_car_brand"
+            android:paddingLeft="@dimen/padding_size5"
+            android:singleLine="true"
+            android:text="宝马"
+            android:textColor="#000000"
+            android:textSize="@dimen/text_size3" />
+    </RelativeLayout>
+
+</RelativeLayout>

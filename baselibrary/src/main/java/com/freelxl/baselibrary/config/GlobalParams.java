@@ -4,11 +4,11 @@ import android.content.Context;
 
 public class GlobalParams {
 
-	public static String user_account;
-
 	public static String customer_id;
 
-	public static String agent_name;
+	public static String token = "";
+
+	public static String smemberId = "";
 
     public static Context context;
 

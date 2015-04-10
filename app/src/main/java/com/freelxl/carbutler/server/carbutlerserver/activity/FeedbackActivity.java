@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
-import com.android.volley.VolleyError;
 import com.freelxl.baselibrary.bean.BaseJson;
 import com.freelxl.baselibrary.utils.HttpRequest;
 import com.freelxl.baselibrary.utils.ToastUtils;
@@ -43,8 +42,8 @@ public class FeedbackActivity extends Activity {
                     return;
                 }
                 HashMap<String, String> paramMap = new HashMap<>();
-                paramMap.put("opinionSource", "服务端");
-                paramMap.put("OpinionClientType", "安卓");
+                paramMap.put("opinionSource", "2");
+                paramMap.put("opinionClientType", "2");
                 paramMap.put("opinionContent", opinionContent);
 
                 new HttpRequest<BaseJson>(FeedbackActivity.this
@@ -52,15 +51,9 @@ public class FeedbackActivity extends Activity {
 
                     @Override
                     public void onSuccess(BaseJson fromJson) {
-                        ToastUtils.showToast("提交成功");
                         FeedbackActivity.this.finish();
                     }
 
-                    @Override
-                    public void onError(BaseJson baseJson, VolleyError error) {
-                        super.onError(baseJson, error);
-                        ToastUtils.showToast("提交失败");
-                    }
                 }.request();
             }
         });

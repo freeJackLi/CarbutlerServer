@@ -53,29 +53,29 @@
         </activity>
         <activity
             android:name=".activity.RegisterActivity"
-            android:label="@string/title_activity_register"></activity>
+            android:label="@string/title_activity_register" />
         <activity
             android:name=".activity.AboutActivity"
-            android:label="@string/title_activity_about"></activity>
+            android:label="@string/title_activity_about" />
         <activity
             android:name=".activity.MyIncomeActivity"
-            android:label="@string/title_activity_my_income"></activity>
+            android:label="@string/title_activity_my_income" />
         <activity
             android:name=".activity.WithdrawActivity"
-            android:label="@string/title_activity_withdraw"></activity>
+            android:label="@string/title_activity_withdraw" />
         <activity
             android:name=".activity.HomeActivity"
-            android:label="@string/title_activity_home"></activity>
-        <activity android:name=".activity.OrderActivity"></activity>
+            android:label="@string/title_activity_home" />
+        <activity android:name=".activity.OrderActivity" />
         <activity
             android:name=".activity.SettingActivity"
-            android:label="@string/title_activity_setting"></activity>
+            android:label="@string/title_activity_setting" />
         <activity
             android:name=".activity.FeedbackActivity"
-            android:label="@string/title_activity_feedback"></activity>
+            android:label="@string/title_activity_feedback" />
         <activity
             android:name=".activity.RegisterSubmitActivity"
-            android:label="@string/title_activity_register_submit"></activity>
+            android:label="@string/title_activity_register_submit" />
 
         <!-- push应用定义消息receiver声明 -->
         <receiver android:name=".receiver.PushMessageReceiver">
@@ -119,14 +119,16 @@
             </intent-filter>
         </receiver>
 
-<!--        <service
+        <!--
+            <service
             android:name="com.baidu.android.pushservice.PushService"
             android:exported="true"
             android:process=":bdservice_v1">
             <intent-filter>
                 <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE" />
             </intent-filter>
-        </service>-->
+        </service>
+        -->
         <service
             android:name="com.baidu.android.pushservice.CommandService"
             android:exported="true" />
@@ -138,6 +140,19 @@
             android:name="api_key"
             android:value="4Bac80ruzeGfTXEVne2p5oGM" />
 
+        <activity
+            android:name=".activity.GoodAtBrandActivity"
+            android:label="@string/title_activity_good_at_brand"></activity>
+
+        <service
+            android:name=".service.LocationService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"></service>
     </application>
 
 </manifest>

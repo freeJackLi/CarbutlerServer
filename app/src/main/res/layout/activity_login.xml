@@ -13,11 +13,12 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/login_username_et"
+            android:id="@+id/et_loginName"
             android:layout_width="match_parent"
             android:singleLine="true"
             android:inputType="phone"
             android:layout_height="45dp"
+            android:text="13301234567"
             android:paddingLeft="15dp"
             android:background="#ffffff"
             android:hint="请输入你的手机号码"
@@ -26,10 +27,11 @@
         <include layout="@layout/common_divider" />
 
         <EditText
-            android:id="@+id/login_pwd_et"
+            android:id="@+id/et_loginPwd"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:singleLine="true"
+            android:text="123456"
             android:inputType="textPassword"
             android:paddingLeft="15dp"
             android:background="#ffffff"

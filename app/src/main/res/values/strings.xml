@@ -108,5 +108,6 @@
     <string name="title_activity_setting">SettingActivity</string>
     <string name="title_activity_feedback">FeedbackActivity</string>
     <string name="title_activity_register_submit">RegisterSubmitActivity</string>
+    <string name="title_activity_good_at_brand">GoodAtBrandActivity</string>
 
 </resources>

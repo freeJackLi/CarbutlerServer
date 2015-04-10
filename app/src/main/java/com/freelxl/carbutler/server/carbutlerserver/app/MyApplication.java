@@ -18,7 +18,6 @@ public class MyApplication extends Application {
         //百度地图初始化
         SDKInitializer.initialize(this);
         FrontiaApplication.initFrontiaApplication(this);
-        System.out.println("aaaa");
 //        FrontiaApplication.initFrontia(this);
     }
 }

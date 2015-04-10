@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.freelxl.carbutler.server.carbutlerserver.R;
 import com.freelxl.carbutler.server.carbutlerserver.view.CommonTitle;
+import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
 public class RegisterSubmitActivity extends Activity {
@@ -16,6 +17,7 @@ public class RegisterSubmitActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_submit);
+        ViewUtils.inject(this);
         title.setMiddleText("申请已提交");
     }
 }
